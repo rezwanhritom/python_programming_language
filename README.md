@@ -12,6 +12,13 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 
 ## 📂 Repository Contents
 
+| File Name                        | Description                                                            |
+| -------------------------------- | ---------------------------------------------------------------------- |
+| 01_variable_assignment_styles.py | All variable assignment formats: single, multiple, chained, augmented  |
+| 02_numeric_datatypes.py          | Integers, floats, complex numbers, binary, octal, hexadecimal literals |
+| 03_string_datatypes.py           | String creation, indexing, slicing, escaping, multiline, raw strings   |
+| 04_boolean_and_none.py           | Boolean operations, None type, truthy/falsy values                     |
+| 05_arithmetic_operators.py       | All arithmetic operators: +, -, *, /, //, %, ** with examples          |
 
 ## 🏷️ License
 
