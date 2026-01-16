@@ -24,6 +24,11 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 08_bitwise_operators.py          | Bitwise AND, OR, XOR, NOT, shifts with binary visualization            |
 | 09_assignment_operators.py       | All assignment operators: =, +=, -=, *=, /=, //=, %=, **=, bitwise     |
 | 10_identity_operators.py         | is, is not operators with object identity concepts                     |
+| 11_membership_operators.py       | in, not in operators for sequences and collections                     |
+| 12_if_statements.py              | if, elif, else with indentation rules and pass statement               |
+| 13_nested_if_statements.py       | Multi-level if nesting with real-world examples                        |
+| 14_for_loops_basic.py            | for loops with lists, strings, tuples, basic iteration                 |
+| 15_for_loops_range.py            | range() function with start, stop, step parameters                     |
 
 
 ## 🏷️ License
