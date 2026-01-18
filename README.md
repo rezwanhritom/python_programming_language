@@ -29,6 +29,11 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 13_nested_if_statements.py       | Multi-level if nesting with real-world examples                        |
 | 14_for_loops_basic.py            | for loops with lists, strings, tuples, basic iteration                 |
 | 15_for_loops_range.py            | range() function with start, stop, step parameters                     |
+| 16_for_loops_enumerate_zip.py    | enumerate() and zip() for indexed and parallel iteration               |
+| 17_while_loops.py                | while loops with else clause and counter patterns                      |
+| 18_nested_for_loops.py           | For loops inside for loops with matrix patterns                        |
+| 19_nested_while_loops.py         | While loops inside while loops with break conditions                   |
+| 20_mixed_nested_loops.py         | 	For inside while and while inside for combinations                    |
 
 
 ## 🏷️ License
