@@ -1,248 +1,326 @@
-# Python Tuples - Basic Concepts Reference
-# Ordered, immutable sequences
+# Python Tuples - Complete Basics Reference
+# Ordered, immutable collections of items
 
 # === TUPLE CREATION ===
 print("=== TUPLE CREATION ===")
-
-# Empty tuple
 empty_tuple = ()
 print(f"Empty tuple: {empty_tuple}, type: {type(empty_tuple)}")
 
-# Single-element (singleton) tuple (note the trailing comma)
-single = (42,)
-print(f"Single element tuple: {single}, type: {type(single)}")
+single = (1,)  # Comma required for single-element tuple
+print(f"Single element: {single}, type: {type(single)}")
 
-# Without comma it's just an int, not a tuple
-not_tuple = (42)
-print(f"(42) is type: {type(not_tuple)}")
+# Without comma, it is not a tuple
+not_a_tuple = (1)
+print(f"(1) without comma: {not_a_tuple}, type: {type(not_a_tuple)}")
 
 # Multiple elements
-numbers = (1, 2, 3, 4)
+numbers = (1, 2, 3, 4, 5)
 print(f"Numbers tuple: {numbers}")
 
 # Mixed types
 mixed = (1, "hello", 3.14, True, None)
-print(f"Mixed tuple: {mixed}")
+print(f"Mixed types: {mixed}")
 
 # Nested tuples
 nested = ((1, 2), (3, 4), (5, 6))
-print(f"Nested tuple: {nested}")
+print(f"Nested: {nested}")
 
-# Tuples can be created without parentheses using commas (tuple packing)
-packed = 10, 20, "python"
-print(f"Packed tuple (implicit): {packed}, type: {type(packed)}")
+# Using tuple() constructor
+from_list = tuple([10, 20, 30])
+print(f"From list: {from_list}")
 
+from_string = tuple("hello")
+print(f"From string: {from_string}")
 
-# === TUPLE FROM OTHER ITERABLES ===
-print("\n=== TUPLE FROM OTHER ITERABLES ===")
-
-# From list
-lst = [1, 2, 3]
-t_from_list = tuple(lst)
-print(f"From list {lst} -> {t_from_list}")
-
-# From string
-s = "hello"
-t_from_string = tuple(s)
-print(f"From string '{s}' -> {t_from_string}")
-
-# From range
-r = range(5)
-t_from_range = tuple(r)
-print(f"From range(5) -> {t_from_range}")
-
-# From set (order is not guaranteed)
-set_obj = {3, 1, 2}
-t_from_set = tuple(set_obj)
-print(f"From set {set_obj} -> {t_from_set}")
+from_range = tuple(range(5))
+print(f"From range: {from_range}")
 
 
 # === TUPLE INDEXING ===
 print("\n=== TUPLE INDEXING ===")
 fruits = ("apple", "banana", "cherry", "date")
 
-print(f"fruits[0]: {fruits[0]}")      # First element
-print(f"fruits[1]: {fruits[1]}")      # Second element
-print(f"fruits[-1]: {fruits[-1]}")    # Last element
-print(f"fruits[-2]: {fruits[-2]}")    # Second to last
+print(f"fruits[0]: {fruits[0]}")
+print(f"fruits[1]: {fruits[1]}")
+print(f"fruits[-1]: {fruits[-1]}")
+print(f"fruits[-2]: {fruits[-2]}")
 
 # Nested indexing
-matrix = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
-print(f"matrix[0][0]: {matrix[0][0]}")
-print(f"matrix[1][2]: {matrix[1][2]}")
+nested = ((1, 2), (3, 4))
+print(f"nested[0][1]: {nested[0][1]}")
 
 
 # === TUPLE SLICING ===
 print("\n=== TUPLE SLICING ===")
 numbers = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-print(f"numbers[2:5]: {numbers[2:5]}")      # Elements 2, 3, 4
-print(f"numbers[:5]: {numbers[:5]}")        # First 5 elements
-print(f"numbers[5:]: {numbers[5:]}")        # From index 5 to end
-print(f"numbers[:]: {numbers[:]}")          # Copy of entire tuple
-print(f"numbers[::2]: {numbers[::2]}")      # Every second element
-print(f"numbers[1::2]: {numbers[1::2]}")    # Every second element from index 1
-print(f"numbers[::-1]: {numbers[::-1]}")    # Reversed tuple
-print(f"numbers[-3:]: {numbers[-3:]}")      # Last 3 elements
-print(f"numbers[:-3]: {numbers[:-3]}")      # All except last 3
+print(f"numbers[2:5]: {numbers[2:5]}")
+print(f"numbers[:5]: {numbers[:5]}")
+print(f"numbers[5:]: {numbers[5:]}")
+print(f"numbers[:]: {numbers[:]}")
+print(f"numbers[::2]: {numbers[::2]}")
+print(f"numbers[::-1]: {numbers[::-1]}")
 
 
-# === TUPLES ARE IMMUTABLE ===
-print("\n=== TUPLES ARE IMMUTABLE ===")
-t = (1, 2, 3)
-print(f"Original tuple: {t}")
-# The following would raise TypeError if uncommented:
-# t[0] = 10
-# t.append(4)
-print("You cannot change, add, or remove elements from a tuple directly.")
+# === TUPLE IMMUTABILITY ===
+print("\n=== TUPLE IMMUTABILITY ===")
+fruits = ("apple", "banana", "cherry")
+print(f"Original: {fruits}")
 
-# But if a tuple contains mutable objects, those objects can change
-t2 = ([1, 2], [3, 4])
-print(f"\nTuple with lists: {t2}")
-t2[0].append(99)  # Modifying the list inside the tuple
-print(f"After t2[0].append(99): {t2}  # Tuple identity same, inner list changed")
+# Cannot modify elements
+# fruits[0] = "apricot"  # TypeError: 'tuple' object does not support item assignment
+
+# Cannot modify slices
+# fruits[1:3] = ("x", "y")  # TypeError: 'tuple' object does not support item assignment
+
+# But can replace entire tuple
+fruits = ("apricot", "blueberry", "cherry")
+print(f"Reassigned: {fruits}")
+
+# Tuples can contain mutable objects
+mutable_tuple = ([1, 2], [3, 4])
+print(f"Original: {mutable_tuple}")
+mutable_tuple[0].append(3)  # Modifying list inside tuple
+print(f"After modifying inner list: {mutable_tuple}")
 
 
-# === TUPLE LENGTH AND MEMBERSHIP ===
-print("\n=== LENGTH AND MEMBERSHIP ===")
+# === TUPLE CONCATENATION ===
+print("\n=== TUPLE CONCATENATION ===")
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+combined = tuple1 + tuple2
+print(f"tuple1 + tuple2: {combined}")
+
+# In-place concatenation not allowed (tuples are immutable)
+# tuple1 += tuple2  # This creates a new tuple and reassigns
+
+
+# === TUPLE REPETITION ===
+print("\n=== TUPLE REPETITION ===")
+original = (1, 2)
+repeated = original * 3
+print(f"(1, 2) * 3: {repeated}")
+
+# In-place repetition not allowed
+# original *= 2  # Creates new tuple and reassigns
+
+
+# === TUPLE LENGTH ===
+print("\n=== TUPLE LENGTH ===")
+fruits = ("apple", "banana", "cherry")
+print(f"len(fruits): {len(fruits)}")
+
+empty = ()
+print(f"len(empty): {len(empty)}")
+
+
+# === TUPLE MEMBERSHIP ===
+print("\n=== TUPLE MEMBERSHIP ===")
 fruits = ("apple", "banana", "cherry")
 
-print(f"len(fruits): {len(fruits)}")
 print(f"'apple' in fruits: {'apple' in fruits}")
 print(f"'mango' in fruits: {'mango' in fruits}")
 print(f"'banana' not in fruits: {'banana' not in fruits}")
 
 
-# === TUPLE ITERATION ===
-print("\n=== TUPLE ITERATION ===")
-colors = ("red", "green", "blue")
-
-print("For loop:")
-for color in colors:
-    print(f"  {color}")
-
-print("\nWith index:")
-for i in range(len(colors)):
-    print(f"  colors[{i}] = {colors[i]}")
-
-print("\nWith enumerate:")
-for index, color in enumerate(colors):
-    print(f"  Index {index}: {color}")
-
-
-# === TUPLE PACKING AND UNPACKING ===
-print("\n=== PACKING AND UNPACKING ===")
-
-# Packing: assigning multiple values to a tuple in one go
+# === TUPLE UNPACKING ===
+print("\n=== TUPLE UNPACKING ===")
 point = (10, 20)
-print(f"Packed point: {point}")
-
-# Unpacking: assigning tuple elements to variables
 x, y = point
-print(f"Unpacked: x={x}, y={y}")
-
-# Multiple values
-person = ("Alice", 30, "New York")
-name, age, city = person
-print(f"Name: {name}, Age: {age}, City: {city}")
+print(f"Point: {point} -> x={x}, y={y}")
 
 # Extended unpacking
-t = (1, 2, 3, 4, 5)
-first, *middle, last = t
-print(f"first: {first}, middle: {middle}, last: {last}")
+numbers = (1, 2, 3, 4, 5)
+first, *middle, last = numbers
+print(f"First: {first}, Middle: {middle}, Last: {last}")
 
-# Ignore unwanted values with _
-a, _, c = (10, 20, 30)
-print(f"a: {a}, c: {c}")
-
-
-# === SWAPPING VARIABLES WITH TUPLES ===
-print("\n=== SWAPPING VARIABLES ===")
-a = 5
-b = 10
-print(f"Before swap: a={a}, b={b}")
-a, b = b, a  # Tuple packing/unpacking
-print(f"After swap: a={a}, b={b}")
+# Ignoring values
+_, important, _ = (10, 20, 30)
+print(f"Important value: {important}")
 
 
-# === TUPLE CONCATENATION AND REPETITION ===
-print("\n=== CONCATENATION AND REPETITION ===")
-t1 = (1, 2, 3)
-t2 = (4, 5, 6)
+# === NAMED TUPLES ===
+print("\n=== NAMED TUPLES ===")
+from collections import namedtuple
 
-concat = t1 + t2
-print(f"t1 + t2: {concat}")
+# Create named tuple type
+Point = namedtuple("Point", ["x", "y"])
+p = Point(10, 20)
+print(f"Named tuple: {p}")
+print(f"p.x: {p.x}, p.y: {p.y}")
 
-repeat = t1 * 3
-print(f"t1 * 3: {repeat}")
+# Named tuple with field names
+Person = namedtuple("Person", ["name", "age", "city"])
+alice = Person("Alice", 30, "New York")
+print(f"Person: {alice}")
+print(f"Name: {alice.name}, Age: {alice.age}, City: {alice.city}")
 
 
 # === TUPLE COMPARISON ===
 print("\n=== TUPLE COMPARISON ===")
-t1 = (1, 2, 3)
-t2 = (1, 2, 3)
-t3 = (1, 2, 4)
-t4 = (0, 99)
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 3)
+tuple3 = (3, 2, 1)
 
-print(f"t1 == t2: {t1 == t2}")  # True
-print(f"t1 == t3: {t1 == t3}")  # False
-print(f"t1 < t3: {t1 < t3}")    # True (compares element-wise)
-print(f"t1 > t4: {t1 > t4}")    # True (1 > 0 at first position)
+print(f"tuple1 == tuple2: {tuple1 == tuple2}")  # True
+print(f"tuple1 == tuple3: {tuple1 == tuple3}")  # False
+print(f"tuple1 is tuple2: {tuple1 is tuple2}")  # False (different objects)
 
 
-# === TUPLES IN BOOLEAN CONTEXT ===
-print("\n=== BOOLEAN CONTEXT ===")
-empty = ()
-non_empty = (1, 2, 3)
+# === TUPLE AS DICTIONARY KEYS ===
+print("\n=== TUPLE AS DICTIONARY KEYS ===")
+# Tuples can be dictionary keys if all elements are hashable
+coordinates = {}
+points = [(1, 2), (3, 4), (5, 6)]
 
-print(f"bool(()) -> {bool(empty)}")
-print(f"bool((1,2,3)) -> {bool(non_empty)}")
+for i, point in enumerate(points):
+    coordinates[point] = f"Point {i}"
 
-if non_empty:
-    print("Tuple has elements")
-else:
-    print("Tuple is empty")
-
-
-# === TUPLES AS DICTIONARY KEYS ===
-print("\n=== TUPLES AS DICTIONARY KEYS ===")
-# Tuples are hashable (if all elements are hashable) and can be used as dict keys
-locations = {
-    (23.5, 90.3): "City A",
-    (24.0, 89.9): "City B",
-}
-
-coord = (23.5, 90.3)
-print(f"Location at {coord}: {locations[coord]}")
+print(f"Dictionary with tuple keys: {coordinates}")
+print(f"coordinates[(1, 2)]: {coordinates[(1, 2)]}")
 
 
-# === RETURNING MULTIPLE VALUES FROM FUNCTIONS ===
-print("\n=== FUNCTIONS RETURNING TUPLES ===")
-def min_max(values):
-    """Return minimum and maximum of an iterable as a tuple."""
-    return min(values), max(values)
-
-nums = [3, 1, 4, 1, 5, 9]
-mn, mx = min_max(nums)
-print(f"Numbers: {nums}")
-print(f"Min: {mn}, Max: {mx}")
+# === TUPLE AS SET ELEMENTS ===
+print("\n=== TUPLE AS SET ELEMENTS ===")
+# Tuples can be set elements if all elements are hashable
+set_of_tuples = {(1, 2), (3, 4), (1, 2)}  # Duplicate will be removed
+print(f"Set of tuples: {set_of_tuples}")
 
 
-# === PRACTICAL USE CASES ===
-print("\n=== PRACTICAL USE CASES ===")
+# === TUPLE METHODS ===
+print("\n=== TUPLE METHODS ===")
+fruits = ("apple", "banana", "cherry", "banana")
 
-# 1. Coordinate pairs
-points = [(0, 0), (1, 2), (3, 4)]
+print(f"fruits.count('banana'): {fruits.count('banana')}")
+print(f"fruits.index('cherry'): {fruits.index('cherry')}")
+print(f"fruits.index('banana', 2): {fruits.index('banana', 2)}")
+
+
+# === TUPLE TO LIST CONVERSION ===
+print("\n=== TUPLE TO LIST CONVERSION ===")
+tuple_fruits = ("apple", "banana", "cherry")
+list_fruits = list(tuple_fruits)
+print(f"Tuple: {tuple_fruits}")
+print(f"List: {list_fruits}")
+print(f"Type of list: {type(list_fruits)}")
+
+
+# === LIST TO TUPLE CONVERSION ===
+print("\n=== LIST TO TUPLE CONVERSION ===")
+list_numbers = [1, 2, 3, 4, 5]
+tuple_numbers = tuple(list_numbers)
+print(f"List: {list_numbers}")
+print(f"Tuple: {tuple_numbers}")
+print(f"Type of tuple: {type(tuple_numbers)}")
+
+
+# === TUPLE PERFORMANCE ===
+print("\n=== TUPLE PERFORMANCE ===")
+print("Tuples are faster than lists for:")
+print("- Creation: tuple() is faster than list()")
+print("- Iteration: Slightly faster due to immutability")
+print("- Memory: More memory efficient")
+print("- Hashing: Can be used as dict keys and set elements")
+
+
+# === TUPLE BEST PRACTICES ===
+print("\n=== TUPLE BEST PRACTICES ===")
+# Use tuples for fixed collections of items
+# Use tuples as records (e.g., coordinates, database rows)
+# Use tuples for function arguments that shouldn't change
+# Use tuples for dictionary keys when needed
+# Use tuples for multiple return values from functions
+
+
+# === PACKING AND UNPACKING ===
+print("\n=== PACKING AND UNPACKING ===")
+# Packing: creating tuple from values
+packed = 1, 2, 3  # Same as (1, 2, 3)
+print(f"Packed: {packed}")
+
+# Unpacking: extracting values from tuple
+a, b, c = packed
+print(f"Unpacked: a={a}, b={b}, c={c}")
+
+# Swapping values using tuple packing/unpacking
+x = 10
+y = 20
+print(f"Before swap: x={x}, y={y}")
+x, y = y, x  # Tuple packing/unpacking
+print(f"After swap: x={x}, y={y}")
+
+
+# === TUPLE AS FUNCTION ARGUMENTS ===
+print("\n=== TUPLE AS FUNCTION ARGUMENTS ===")
+def process_coordinates(point):
+    x, y = point
+    return x * 2, y * 2
+
+coordinates = (5, 10)
+result = process_coordinates(coordinates)
+print(f"Input: {coordinates}, Output: {result}")
+
+
+# === TUPLE AS RETURN VALUES ===
+print("\n=== TUPLE AS RETURN VALUES ===")
+def get_min_max(numbers):
+    return min(numbers), max(numbers)
+
+data = [3, 1, 4, 1, 5, 9, 2]
+min_val, max_val = get_min_max(data)
+print(f"Data: {data}")
+print(f"Min: {min_val}, Max: {max_val}")
+
+
+# === ADVANCED: UNPACKING IN LOOPS ===
+print("\n=== UNPACKING IN LOOPS ===")
+points = [(1, 2), (3, 4), (5, 6)]
+
 for x, y in points:
-    print(f"Point: x={x}, y={y}")
+    print(f"Point: ({x}, {y}) -> Sum: {x + y}")
 
-# 2. Enumerating with tuple unpacking
-students = [("Alice", 25), ("Bob", 22), ("Charlie", 27)]
-for name, age in students:
-    print(f"{name} is {age} years old")
 
-# 3. Using tuples to protect data from modification
-config = ("localhost", 8080, "https")
-host, port, protocol = config
-print(f"Config: host={host}, port={port}, protocol={protocol}")
-print("config cannot be accidentally modified since it's a tuple")
+# === TUPLE IMMUTABILITY DEMONSTRATION ===
+print("\n=== IMMUTABILITY DEMONSTRATION ===")
+def try_modify(tup):
+    try:
+        tup[0] = 999
+    except TypeError as e:
+        print(f"Cannot modify tuple: {e}")
+
+original = (1, 2, 3)
+print(f"Original: {original}")
+try_modify(original)
+print(f"After function call: {original}")  # Unchanged
+
+
+# === TUPLE IN FUNCTION DEFINITIONS ===
+print("\n=== TUPLE IN FUNCTION DEFINITIONS ===")
+def func_with_tuple_args(*args):
+    """*args collects positional arguments as a tuple"""
+    print(f"args type: {type(args)}")
+    print(f"args value: {args}")
+    return sum(args)
+
+result = func_with_tuple_args(1, 2, 3, 4, 5)
+print(f"Sum: {result}")
+
+
+# === TUPLE COMPREHENSION (GENERATOR EXPRESSION) ===
+print("\n=== TUPLE COMPREHENSION ===")
+# Tuples don't have comprehensions like lists
+# Use generator expression and convert to tuple
+numbers = [1, 2, 3, 4, 5]
+squares_tuple = tuple(x**2 for x in numbers)
+print(f"Original: {numbers}")
+print(f"Squares tuple: {squares_tuple}")
+print(f"Type: {type(squares_tuple)}")
+
+
+# === FINAL SUMMARY ===
+print("\n=== FINAL SUMMARY ===")
+print("Tuples are immutable, ordered sequences")
+print("Use them for fixed data, records, keys, and return values")
+print("They are more memory-efficient and faster than lists")
+print("Immutability makes them hashable (usable as dict keys)")

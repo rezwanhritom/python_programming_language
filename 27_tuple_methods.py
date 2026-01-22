@@ -1,202 +1,236 @@
-# Python Tuple Methods - Focused Reference
-# Built-in methods: count(), index()
-# Plus common patterns that behave like "methods" in practice.
-
-# === REMINDER: TUPLES ARE IMMUTABLE ===
-print("=== REMINDER: TUPLES ARE IMMUTABLE ===")
-t = (1, 2, 3, 2, 4, 2)
-print(f"Tuple: {t}")
-print("Tuples do NOT have methods like append, extend, insert, remove, pop, clear, sort, or reverse.")
-print("They only have count() and index().")
-
+# Python Tuple Methods - Complete Reference
+# Tuples have only 2 built-in methods: count() and index()
 
 # === COUNT() METHOD ===
-print("\n=== count() METHOD ===")
-# Syntax: tuple.count(value)
-# Returns the number of times 'value' appears in the tuple. [web:57][web:59]
+print("=== TUPLE COUNT() METHOD ===")
+# count() returns the number of times a specified value appears in the tuple
 
-numbers = (1, 2, 2, 3, 2, 4, 2, 5)
-print(f"numbers: {numbers}")
+fruits = ("apple", "banana", "cherry", "apple", "banana", "apple")
+print(f"Tuple: {fruits}")
+print(f"fruits.count('apple'): {fruits.count('apple')}")
+print(f"fruits.count('banana'): {fruits.count('banana')}")
+print(f"fruits.count('cherry'): {fruits.count('cherry')}")
+print(f"fruits.count('mango'): {fruits.count('mango')}")  # Returns 0 if not found
 
-count_2 = numbers.count(2)
-print(f"numbers.count(2): {count_2}")  # 4
+# Count with nested tuples
+nested = ((1, 2), (3, 4), (1, 2), (5, 6))
+print(f"\nNested tuple: {nested}")
+print(f"nested.count((1, 2)): {nested.count((1, 2))}")
 
-count_3 = numbers.count(3)
-print(f"numbers.count(3): {count_3}")  # 1
-
-count_99 = numbers.count(99)
-print(f"numbers.count(99): {count_99}")  # 0
-
-# Works with any hashable type
-mixed = ("apple", "banana", "apple", "cherry", "apple")
-print(f"\nmixed: {mixed}")
-print(f"mixed.count('apple'): {mixed.count('apple')}")
-print(f"mixed.count('banana'): {mixed.count('banana')}")
-print(f"mixed.count('x'): {mixed.count('x')}")
-
-
-# === index() METHOD ===
-print("\n=== index() METHOD ===")
-# Syntax: tuple.index(value[, start[, end]]) [web:58][web:60]
-# Returns the index of the FIRST occurrence of value.
-# Raises ValueError if value not found.
-
-t = (10, 20, 30, 20, 40, 20, 50)
-print(f"t: {t}")
-
-idx_20 = t.index(20)
-print(f"t.index(20): {idx_20}")  # 1 (first 20)
-
-idx_20_from_2 = t.index(20, 2)  # Search from index 2
-print(f"t.index(20, 2): {idx_20_from_2}")  # 3
-
-# With start and end range
-idx_20_range = t.index(20, 2, 5)  # Search in slice t[2:5]
-print(f"t.index(20, 2, 5): {idx_20_range}")  # 3
-
-# ValueError example (commented)
-# t.index(99)  # Would raise ValueError: tuple.index(x): x not in tuple
+# Count with mixed types
+mixed = (1, "hello", 3.14, 1, "hello", 1)
+print(f"\nMixed tuple: {mixed}")
+print(f"mixed.count(1): {mixed.count(1)}")  # Counts integer 1 only
+print(f"mixed.count('hello'): {mixed.count('hello')}")
+print(f"mixed.count(3.14): {mixed.count(3.14)}")
 
 
-# === COMBINING count() AND index() ===
-print("\n=== COMBINING count() AND index() ===")
-t = (1, 2, 2, 3, 2, 4, 2)
-print(f"t: {t}")
-value = 2
+# === INDEX() METHOD ===
+print("\n=== TUPLE INDEX() METHOD ===")
+# index() returns the index of the first occurrence of a specified value
 
-total = t.count(value)
-print(f"{value} appears {total} times")
+fruits = ("apple", "banana", "cherry", "date", "banana")
+print(f"Tuple: {fruits}")
+print(f"fruits.index('apple'): {fruits.index('apple')}")
+print(f"fruits.index('banana'): {fruits.index('banana')}")  # First occurrence
+print(f"fruits.index('date'): {fruits.index('date')}")
 
-# Get all indices of value using index in a loop
-indices = []
-start = 0
-while True:
-    try:
-        pos = t.index(value, start)
-        indices.append(pos)
-        start = pos + 1
-    except ValueError:
-        break
+# Index with start parameter
+print(f"\nfruits.index('banana', 2): {fruits.index('banana', 2)}")  # Start searching from index 2
 
-print(f"Indices of {value}: {indices}")
+# Index with start and end parameters
+print(f"fruits.index('banana', 1, 4): {fruits.index('banana', 1, 4)}")  # Search between indices 1 and 4
 
 
-# === SEARCHING SUBRANGE WITH index() ===
-print("\n=== SEARCHING SUBRANGE ===")
-letters = ("a", "b", "c", "d", "e", "b", "f")
-print(f"letters: {letters}")
+# === INDEX() ERROR HANDLING ===
+print("\n=== INDEX() ERROR HANDLING ===")
+fruits = ("apple", "banana", "cherry")
 
-# Find 'b' in first half
-idx_first_half = letters.index("b", 0, len(letters)//2)
-print(f"Index of 'b' in first half: {idx_first_half}")
+try:
+    index = fruits.index("mango")
+    print(f"Index of 'mango': {index}")
+except ValueError as e:
+    print(f"ValueError: {e}")  # 'mango' is not in tuple
 
-# Find 'b' in second half
-idx_second_half = letters.index("b", len(letters)//2)
-print(f"Index of 'b' in second half: {idx_second_half}")
-
-
-# === PATTERN: FIND ALL POSITIONS OF VALUE ===
-print("\n=== FIND ALL POSITIONS OF VALUE ===")
-t = ("apple", "banana", "apple", "cherry", "apple", "banana")
-value = "banana"
-print(f"t: {t}")
-print(f"Value to find: {value}")
-
-positions = [i for i, v in enumerate(t) if v == value]
-print(f"All positions of '{value}': {positions}")
+try:
+    index = fruits.index("banana", 3)  # Start beyond where banana exists
+    print(f"Index: {index}")
+except ValueError as e:
+    print(f"ValueError: {e}")  # 'banana' is not in tuple
 
 
-# === PATTERN: CHECK EXISTENCE BEFORE index() ===
-print("\n=== CHECK EXISTENCE BEFORE index() ===")
-t = (1, 3, 5, 7)
-print(f"t: {t}")
+# === BUILT-IN FUNCTIONS THAT WORK WITH TUPLES ===
+print("\n=== BUILT-IN FUNCTIONS WITH TUPLES ===")
+# While not methods, these are commonly used with tuples
 
-x = 5
-if x in t:
-    print(f"{x} found at index {t.index(x)}")
-else:
-    print(f"{x} not found")
+numbers = (3, 1, 4, 1, 5, 9, 2, 6)
 
-y = 10
-if y in t:
-    print(f"{y} found at index {t.index(y)}")
-else:
-    print(f"{y} not found")
+print(f"Tuple: {numbers}")
+print(f"len(numbers): {len(numbers)}")
+print(f"min(numbers): {min(numbers)}")
+print(f"max(numbers): {max(numbers)}")
+print(f"sum(numbers): {sum(numbers)}")
+print(f"sorted(numbers): {sorted(numbers)}")  # Returns list
+print(f"tuple(sorted(numbers)): {tuple(sorted(numbers))}")  # Convert back to tuple
 
 
-# === METHOD-LIKE OPERATIONS (NOT METHODS) ===
-print("\n=== COMMON OPERATIONS (NOT METHODS) ===")
-t = (0, 1, 2, 3, 4, 5, 6)
+# === ANY() AND ALL() WITH TUPLES ===
+print("\n=== ANY() AND ALL() WITH TUPLES ===")
+mixed = (0, 1, "", "hello", False, True)
 
-# Length
-print(f"len(t): {len(t)}")
+print(f"Tuple: {mixed}")
+print(f"any(mixed): {any(mixed)}")  # True if at least one element is truthy
+print(f"all(mixed): {all(mixed)}")  # True if all elements are truthy
 
-# Membership
-print(f"3 in t: {3 in t}")
-print(f"99 in t: {99 in t}")
-
-# Slicing
-print(f"t[2:5]: {t[2:5]}")
-
-# Concatenation and repetition [web:56][web:44]
-t1 = (1, 2, 3)
-t2 = (4, 5)
-print(f"t1 + t2: {t1 + t2}")
-print(f"t1 * 3: {t1 * 3}")
-
-# min, max, sum
-nums = (3, 1, 4, 1, 5)
-print(f"\nnums: {nums}")
-print(f"min(nums): {min(nums)}")
-print(f"max(nums): {max(nums)}")
-print(f"sum(nums): {sum(nums)}")
-
-# Sorted (returns list)
-print(f"sorted(nums): {sorted(nums)}")
+# With all truthy values
+all_true = (1, 2, 3, "hello", True)
+print(f"\nall_true: {all_true}")
+print(f"any(all_true): {any(all_true)}")
+print(f"all(all_true): {all(all_true)}")
 
 
-# === TUPLE AS RETURN TYPE WITH METHODS-LIKE BEHAVIOR ===
-print("\n=== TUPLE AS RETURN TYPE ===")
-def find_min_max_positions(values):
-    """Return (min_value, min_index, max_value, max_index)."""
-    min_val = min(values)
-    max_val = max(values)
-    min_idx = values.index(min_val)
-    max_idx = values.index(max_val)
-    return (min_val, min_idx, max_val, max_idx)
+# === ENUMERATE() WITH TUPLES ===
+print("\n=== ENUMERATE() WITH TUPLES ===")
+fruits = ("apple", "banana", "cherry")
 
-values = (5, 2, 9, 1, 9, 3)
-result = find_min_max_positions(values)
-print(f"values: {values}")
-print(f"(min_val, min_idx, max_val, max_idx): {result}")
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+
+
+# === ZIP() WITH TUPLES ===
+print("\n=== ZIP() WITH TUPLES ===")
+names = ("Alice", "Bob", "Charlie")
+ages = (25, 30, 35)
+
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+
+# Create tuple of tuples
+zipped_tuple = tuple(zip(names, ages))
+print(f"Zipped tuple: {zipped_tuple}")
 
 
 # === PRACTICAL EXAMPLES ===
 
-print("\n=== PRACTICAL: FREQUENCY TABLE ===")
-data = ("red", "blue", "red", "green", "blue", "red")
-unique_colors = set(data)
-for color in unique_colors:
-    print(f"{color}: {data.count(color)} time(s)")
+# 1. Using count() to analyze data
+print("\n=== PRACTICAL: DATA ANALYSIS WITH COUNT() ===")
+responses = ("yes", "no", "yes", "yes", "no", "maybe", "yes", "no")
+print(f"Responses: {responses}")
+print(f"'yes' count: {responses.count('yes')}")
+print(f"'no' count: {responses.count('no')}")
+print(f"'maybe' count: {responses.count('maybe')}")
 
 
-print("\n=== PRACTICAL: SAFE index() WRAPPER ===")
+# 2. Using index() to find positions
+print("\n=== PRACTICAL: FINDING POSITIONS WITH INDEX() ===")
+grades = ("A", "B", "C", "D", "F", "B", "A", "C")
+target_grade = "C"
+first_occurrence = grades.index(target_grade)
+print(f"First '{target_grade}' at index: {first_occurrence}")
+
+# Find all occurrences
+print(f"All positions of '{target_grade}':")
+for i, grade in enumerate(grades):
+    if grade == target_grade:
+        print(f"  Index {i}")
+
+
+# 3. Finding duplicate elements
+print("\n=== PRACTICAL: FINDING DUPLICATES ===")
+numbers = (1, 2, 3, 2, 4, 5, 2, 3, 6)
+duplicates = []
+
+for num in set(numbers):
+    count = numbers.count(num)
+    if count > 1:
+        duplicates.append((num, count))
+
+print(f"Original tuple: {numbers}")
+print(f"Duplicates (number, count): {duplicates}")
+
+
+# 4. Tuple comparison using count()
+print("\n=== PRACTICAL: TUPLE COMPARISON ===")
+tuple1 = ("a", "b", "c", "a")
+tuple2 = ("a", "b", "c", "d")
+
+print(f"tuple1: {tuple1}")
+print(f"tuple2: {tuple2}")
+print(f"Both have same 'a' count: {tuple1.count('a') == tuple2.count('a')}")
+print(f"Both have same 'b' count: {tuple1.count('b') == tuple2.count('b')}")
+print(f"Both have same length: {len(tuple1) == len(tuple2)}")
+
+
+# 5. Safe index lookup with try/except
+print("\n=== PRACTICAL: SAFE INDEX LOOKUP ===")
 def safe_index(tup, value, start=0, end=None):
-    """Return index of value or -1 if not found."""
-    if end is None:
-        end = len(tup)
+    """Return index of value or -1 if not found"""
     try:
-        return tup.index(value, start, end)
+        if end is None:
+            return tup.index(value, start)
+        else:
+            return tup.index(value, start, end)
     except ValueError:
         return -1
 
-t = ("a", "b", "c", "b", "d")
-print(f"t: {t}")
-print(f"safe_index(t, 'b'): {safe_index(t, 'b')}")
-print(f"safe_index(t, 'b', 2): {safe_index(t, 'b', 2)}")
-print(f"safe_index(t, 'x'): {safe_index(t, 'x')}")
+fruits = ("apple", "banana", "cherry")
+print(f"fruits: {fruits}")
+print(f"safe_index(fruits, 'banana'): {safe_index(fruits, 'banana')}")
+print(f"safe_index(fruits, 'mango'): {safe_index(fruits, 'mango')}")
+print(f"safe_index(fruits, 'banana', 2): {safe_index(fruits, 'banana', 2)}")
 
-print("\n=== SUMMARY ===")
-print("Tuple methods are minimal by design: only count() and index().")
-print("Most other behavior comes from generic sequence operations (len, slicing, +, *, in).")
-print("Use tuples when you need fixed, ordered data that should not change.")
+
+# === METHOD LIMITATIONS DUE TO IMMUTABILITY ===
+print("\n=== IMMUTABILITY LIMITATIONS ===")
+# Tuples don't have these methods (because they're immutable):
+# append(), extend(), insert(), remove(), pop(), clear(), sort(), reverse()
+
+print("Tuples are immutable, so they lack:")
+print("  - append(), extend(), insert()")
+print("  - remove(), pop(), clear()")
+print("  - sort(), reverse()")
+
+print("\nIf you need these operations, use a list instead:")
+temp_list = list(fruits)
+temp_list.append("date")
+new_tuple = tuple(temp_list)
+print(f"Converted to list, appended, converted back: {new_tuple}")
+
+
+# === PERFORMANCE COMPARISON ===
+print("\n=== PERFORMANCE COMPARISON ===")
+import time
+
+large_tuple = tuple(range(10000))
+
+# count() performance
+start = time.time()
+count = large_tuple.count(5000)
+count_time = time.time() - start
+print(f"count() in large tuple: {count_time:.6f}s")
+
+# index() performance
+start = time.time()
+try:
+    index = large_tuple.index(5000)
+    index_time = time.time() - start
+    print(f"index() in large tuple: {index_time:.6f}s")
+except:
+    print("Element not found")
+
+# Built-in functions performance
+start = time.time()
+length = len(large_tuple)
+len_time = time.time() - start
+print(f"len() in large tuple: {len_time:.6f}s")
+
+
+# === FINAL SUMMARY ===
+print("\n=== FINAL SUMMARY ===")
+print("Tuple has only 2 methods:")
+print("  1. count(value) - returns occurrence count")
+print("  2. index(value, [start], [end]) - returns first index")
+print("\nCommon built-in functions:")
+print("  - len(), min(), max(), sum(), sorted()")
+print("  - any(), all(), enumerate(), zip()")
+print("\nTuples are immutable - no modification methods")
