@@ -44,6 +44,7 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 28_dictionaries_basics.py	       | Dictionary creation, key-value access, modification                    |
 | 29_dictionary_methods.py	       | All dictionary methods: keys, values, items, get, update, etc.         |
 | 30_sets_basics.py	               | Set creation, uniqueness, basic operations                             |
+| 31_set_operations.py             | Union, intersection, difference, symmetric difference                  |
 
 
 ## 🏷️ License
