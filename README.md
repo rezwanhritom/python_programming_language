@@ -33,7 +33,17 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 17_while_loops.py                | while loops with else clause and counter patterns                      |
 | 18_nested_for_loops.py           | For loops inside for loops with matrix patterns                        |
 | 19_nested_while_loops.py         | While loops inside while loops with break conditions                   |
-| 20_mixed_nested_loops.py         | 	For inside while and while inside for combinations                    |
+| 20_mixed_nested_loops.py         | For inside while and while inside for combinations                     |
+| 21_break_statement.py	           | break usage in loops with search examples                              |
+| 22_continue_statement.py	       | continue usage with skip patterns                                      |
+| 23_pass_statement.py	           | pass as placeholder in loops and conditionals                          |
+| 24_lists_basics.py	             | List creation, indexing, slicing, modification                         |
+| 25_list_methods.py	             | All list methods: append, insert, remove, pop, sort, reverse, etc.     |
+| 26_tuples_basics.py	             | Tuple creation, indexing, immutability, unpacking                      |
+| 27_tuple_methods.py	             | Tuple methods and operations                                           |
+| 28_dictionaries_basics.py	       | Dictionary creation, key-value access, modification                    |
+| 29_dictionary_methods.py	       | All dictionary methods: keys, values, items, get, update, etc.         |
+| 30_sets_basics.py	               | Set creation, uniqueness, basic operations                             |
 
 
 ## 🏷️ License
