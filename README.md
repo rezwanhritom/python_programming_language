@@ -1,16 +1,22 @@
-# 🧠 Python Programming Language Journey
+# Python Programming Language
 
-Welcome to my **Python Programming Language** repository!  
+Welcome to my **Python Programming Language** repository! 
+
 This is a personal learning archive where I document my journey of mastering the **Python programming language** — from the basics of syntax to advanced programming concepts.
 
 ---
 
 ## 📘 About This Repository
 
-This repository serves as my **learning log and code collection** for everything related to Python.  
+This repository serves as my **learning log and code collection** for everything related to Python. 
+
 Here, I’ll be writing, organizing, and pushing Python programs that I create while studying, practicing, and experimenting with.
 
+---
+
 ## 📂 Repository Contents
+
+### Basics of Python
 
 | File Name                        | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
@@ -37,22 +43,29 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 21_break_statement.py	           | break usage in loops with search examples                              |
 | 22_continue_statement.py	       | continue usage with skip patterns                                      |
 | 23_pass_statement.py	           | pass as placeholder in loops and conditionals                          |
-| 24_lists_basics.py	             | List creation, indexing, slicing, modification                         |
-| 25_list_methods.py	             | All list methods: append, insert, remove, pop, sort, reverse, etc.     |
-| 26_tuples_basics.py	             | Tuple creation, indexing, immutability, unpacking                      |
-| 27_tuple_methods.py	             | Tuple methods and operations                                           |
+| 24_lists_basics.py	           | List creation, indexing, slicing, modification                         |
+| 25_list_methods.py	           | All list methods: append, insert, remove, pop, sort, reverse, etc.     |
+| 26_tuples_basics.py	           | Tuple creation, indexing, immutability, unpacking                      |
+| 27_tuple_methods.py	           | Tuple methods and operations                                           |
 | 28_dictionaries_basics.py	       | Dictionary creation, key-value access, modification                    |
 | 29_dictionary_methods.py	       | All dictionary methods: keys, values, items, get, update, etc.         |
 | 30_sets_basics.py	               | Set creation, uniqueness, basic operations                             |
 | 31_set_operations.py             | Union, intersection, difference, symmetric difference                  |
 
+---
 
-## 🏷️ License
+## 🏷️ Purpose
 
-This repository is licensed under the MIT License, meaning you can freely explore, copy, and learn from the code — but please provide attribution where appropriate.
+This repository is a personal learning log.
+
+All code and notes are shared for educational and reference purposes only.
+
+---
 
 ## 💬 Connect
 
 If you find this repository helpful or want to discuss python programming, feel free to connect or open an issue/discussion.
 
 Created and maintained by: [Rezwanur Rahman](https://github.com/rezwanhritom)
+
+---
