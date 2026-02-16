@@ -43,14 +43,23 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 21_break_statement.py	           | break usage in loops with search examples                              |
 | 22_continue_statement.py	       | continue usage with skip patterns                                      |
 | 23_pass_statement.py	           | pass as placeholder in loops and conditionals                          |
-| 24_lists_basics.py	           | List creation, indexing, slicing, modification                         |
-| 25_list_methods.py	           | All list methods: append, insert, remove, pop, sort, reverse, etc.     |
-| 26_tuples_basics.py	           | Tuple creation, indexing, immutability, unpacking                      |
-| 27_tuple_methods.py	           | Tuple methods and operations                                           |
+| 24_lists_basics.py	             | List creation, indexing, slicing, modification                         |
+| 25_list_methods.py	             | All list methods: append, insert, remove, pop, sort, reverse, etc.     |
+| 26_tuples_basics.py	             | Tuple creation, indexing, immutability, unpacking                      |
+| 27_tuple_methods.py	             | Tuple methods and operations                                           |
 | 28_dictionaries_basics.py	       | Dictionary creation, key-value access, modification                    |
 | 29_dictionary_methods.py	       | All dictionary methods: keys, values, items, get, update, etc.         |
 | 30_sets_basics.py	               | Set creation, uniqueness, basic operations                             |
 | 31_set_operations.py             | Union, intersection, difference, symmetric difference                  |
+| 32_string_methods.py	           | Common string methods: upper, lower, strip, split, join, replace       |
+| 33_string_formatting.py	         | f-strings, format(), % formatting, template strings                    |
+| 34_type_conversion.py	           | int(), float(), str(), bool(), list(), tuple(), set(), dict()          |
+| 35_input_output.py	             | input() function, print() with sep and end parameters                  |
+| 36_functions_basics.py	         | Function definition, calling, return values                            |
+| 37_function_parameters.py	       | Positional and keyword parameters                                      |
+| 38_default_arguments.py	         | Default parameter values and mutable defaults trap                     |
+| 39_variable_arguments.py	       | *args for variable positional arguments                                |
+| 40_keyword_arguments.py	         | **kwargs for variable keyword arguments                                |
 
 ---
 
