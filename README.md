@@ -60,6 +60,16 @@ Here, I’ll be writing, organizing, and pushing Python programs that I create w
 | 38_default_arguments.py	         | Default parameter values and mutable defaults trap                     |
 | 39_variable_arguments.py	       | *args for variable positional arguments                                |
 | 40_keyword_arguments.py	         | **kwargs for variable keyword arguments                                |
+| 41_lambda_functions.py		       | Lambda syntax, usage with map, filter, sorted                          |
+| 42_list_comprehensions.py		     | List comprehension syntax with if conditions                           |
+| 43_dictionary_comprehensions.py	 | Dict comprehension from lists and dicts                                |
+| 44_set_comprehensions.py		     | Set comprehension syntax and examples                                  |
+| 45_exception_handling.py		     | try, except, else, finally with exception types                        |
+| 46_file_reading.py		           | Reading files with open(), read(), readline(), readlines()             |
+| 47_file_writing.py		           | Writing files with write(), writelines(), append mode                  |
+| 48_import_statements.py		       | import, from...import, as aliases, name == 'main'                      |
+| 49_classes_basics.py		         | Class definition, init, instance attributes, methods                   |
+| 50_inheritance.py		             | Single inheritance, super(), method overriding                         |
 
 ---
 
